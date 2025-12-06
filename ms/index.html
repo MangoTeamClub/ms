@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango搜索</title>
+    
+    <!-- 网页缩略图元标签 -->
+    <meta property="og:image" content="https://user-assets.sxlcdn.com/images/1270246/FpH4quO20Q2RoI2k8iLNtchuad3l.jpg?imageMogr2/strip/auto-orient/thumbnail/300x300%3E/format/jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="Mango搜索预览图">
+    <meta property="og:title" content="Mango搜索 - 极简三合一搜索引擎">
+    <meta property="og:description" content="集成必应搜索、百度搜索和AI问答的极简芒果风格搜索工具">
+    <meta property="og:url" content="https://yourdomain.com/mango-search.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card 元标签 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://user-assets.sxlcdn.com/images/1270246/FpH4quO20Q2RoI2k8iLNtchuad3l.jpg?imageMogr2/strip/auto-orient/thumbnail/300x300%3E/format/jpg">
+    <meta name="twitter:title" content="Mango搜索 - 极简三合一搜索引擎">
+    <meta name="twitter:description" content="集成必应搜索、百度搜索和AI问答的极简芒果风格搜索工具">
+    
+    <!-- 传统link标签（兼容性） -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥭</text></svg>">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥭</text></svg>">
+    
+    <!-- 额外的网页描述 -->
+    <meta name="description" content="集成必应搜索、百度搜索和AI问答的极简芒果风格搜索工具">
+    <meta name="keywords" content="Mango搜索,必应搜索,百度搜索,AI问答,极简搜索工具">
+    <meta name="author" content="Mango搜索">
+
+    <style>
+        /* 原有样式保持不变 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #ffefba 0%, #ffa726 100%); /* 芒果黄渐变背景 */
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff8c00; /* 深芒果黄 */
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #ffd166; /* 芒果黄边框 */
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+            background: #fffef7;
+        }
+
+        #searchInput:focus {
+            border-color: #ffa726;
+            box-shadow: 0 0 0 3px rgba(255, 167, 38, 0.2);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .search-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .search-btn i {
+            font-size: 1.1rem;
+        }
+
+        .bing-btn {
+            background-color: #0078d4;
+            color: white;
+        }
+
+        .bing-btn:hover {
+            background-color: #106ebe;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 120, 212, 0.3);
+        }
+
+        .baidu-btn {
+            background-color: #2932e1;
+            color: white;
+        }
+
+        .baidu-btn:hover {
+            background-color: #1a22c4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 50, 225, 0.3);
+        }
+
+        .ai-btn {
+            background-color: #ffa726; /* 芒果黄 */
+            color: white;
+        }
+
+        .ai-btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 167, 38, 0.3);
+        }
+
+        /* 全屏模态框样式 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-header {
+            background: linear-gradient(to right, #ffa726, #ff8c00);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-header h2 i {
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fcfcfc;
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            text-align: right;
+        }
+
+        .modal-footer button {
+            background-color: #ffa726;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .modal-footer button:hover {
+            background-color: #f57c00;
+        }
+
+        .loading {
+            display: none;
+            color: #666;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        .loading span {
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                min-width: 100%;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .modal-body {
+                max-height: 70vh;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .modal-header {
+                padding: 15px 20px;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Mango搜索</h1>
+            <p>极简的现代搜索 | ©2022-2026 Mango</p>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="请输入搜索内容或问题..." autocomplete="off" autofocus>
+            
+            <div class="button-container">
+                <button class="search-btn bing-btn" id="bingBtn">
+                    <i class="fab fa-microsoft"></i> 必应搜索
+                </button>
+                <button class="search-btn baidu-btn" id="baiduBtn">
+                    <i class="fab fa-baidu"></i> 百度搜索
+                </button>
+                <button class="search-btn ai-btn" id="aiBtn">
+                    <i class="fas fa-robot"></i> 问 AI
+                </button>
+            </div>
+            
+            <div class="loading" id="loading">
+                <span>AI 正在思考，请稍候...</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>必应搜索 | 百度搜索 | AI 问答</p>
+            <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">
+                注：AI 功能基于第三方 API，回答内容仅供参考
+            </p>
+        </div>
+    </div>
+
+    <!-- 全屏模态框 -->
+    <div class="modal" id="aiModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-robot"></i> AI 回答</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- AI回答内容将在这里显示 -->
+            </div>
+            <div class="modal-footer">
+                <button id="copyBtn"><i class="far fa-copy"></i> 复制回答</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 获取DOM元素
+        const searchInput = document.getElementById('searchInput');
+        const bingBtn = document.getElementById('bingBtn');
+        const baiduBtn = document.getElementById('baiduBtn');
+        const aiBtn = document.getElementById('aiBtn');
+        const loading = document.getElementById('loading');
+        
+        // 模态框相关元素
+        const aiModal = document.getElementById('aiModal');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.getElementById('closeModal');
+        const copyBtn = document.getElementById('copyBtn');
+
+        // 执行搜索的通用函数
+        function performSearch(searchType) {
+            const query = searchInput.value.trim();
+            
+            if (!query) {
+                alert('请输入搜索内容！');
+                searchInput.focus();
+                return;
+            }
+            
+            // 对搜索词进行URL编码
+            const encodedQuery = encodeURIComponent(query);
+            
+            // 根据搜索类型跳转到不同搜索引擎
+            if (searchType === 'bing') {
+                // 必应搜索
+                window.open(`https://cn.bing.com/search?q=${encodedQuery}&PC=U316&FORM=CHROMN`, '_blank');
+            } else if (searchType === 'baidu') {
+                // 百度搜索 - 使用您要求的格式 wd=1搜索内容
+                window.open(`https://www.baidu.com/s?wd=1${encodedQuery}`, '_blank');
+            } else if (searchType === 'ai') {
+                // 问AI功能
+                askAI(query);
+            }
+        }
+
+        // 调用AI API的函数
+        async function askAI(question) {
+            // 显示加载中
+            loading.style.display = 'block';
+            
+            try {
+                // 构建API请求URL
+                const apiUrl = `https://api.jkyai.top/API/ling-1t.php?question=${encodeURIComponent(question)}`;
+                
+                // 发送请求到AI API
+                const response = await fetch(apiUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`API请求失败: ${response.status}`);
+                }
+                
+                // 获取纯文本响应
+                const aiText = await response.text();
+                
+                // 显示模态框并设置内容
+                showModal(aiText || 'AI未返回有效内容，请稍后重试。');
+                
+            } catch (error) {
+                // 显示错误信息
+                showModal(`请求AI时出错: ${error.message}\n\n请检查网络连接或稍后重试。`);
+                console.error('AI请求错误:', error);
+            } finally {
+                // 隐藏加载中
+                loading.style.display = 'none';
+            }
+        }
+
+        // 显示模态框
+        function showModal(content) {
+            // 设置模态框内容
+            modalBody.innerHTML = `<div style="white-space: pre-wrap; line-height: 1.8;">${escapeHtml(content)}</div>`;
+            
+            // 显示模态框
+            aiModal.style.display = 'block';
+            
+            // 防止背景滚动
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭模态框
+        function closeModalFunc() {
+            aiModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // 恢复滚动
+        }
+
+        // HTML转义，防止XSS攻击
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 复制回答到剪贴板
+        function copyToClipboard() {
+            const textToCopy = modalBody.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // 显示复制成功反馈
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> 已复制';
+                copyBtn.style.backgroundColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.style.backgroundColor = '#ffa726';
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+                alert('复制失败，请手动选择文本复制。');
+            });
+        }
+
+        // 为按钮添加点击事件
+        bingBtn.addEventListener('click', () => performSearch('bing'));
+        baiduBtn.addEventListener('click', () => performSearch('baidu'));
+        aiBtn.addEventListener('click', () => performSearch('ai'));
+
+        // 为输入框添加键盘事件
+        searchInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                performSearch('bing');
+            }
+        });
+
+        // 模态框关闭事件
+        closeModal.addEventListener('click', closeModalFunc);
+        
+        // 点击模态框外部关闭
+        aiModal.addEventListener('click', function(event) {
+            if (event.target === aiModal) {
+                closeModalFunc();
+            }
+        });
+        
+        // 复制按钮事件
+        copyBtn.addEventListener('click', copyToClipboard);
+        
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && aiModal.style.display === 'block') {
+                closeModalFunc();
+            }
+        });
+
+        // 页面加载后，自动让输入框获得焦点
+        window.addEventListener('DOMContentLoaded', () => {
+            searchInput.focus();
+        });
+    </script>
+</body>
+</html>
