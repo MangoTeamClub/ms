@@ -3,167 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mango搜索</title>
-    
-    <!-- 网页缩略图元标签 -->
-    <meta property="og:image" content="https://user-assets.sxlcdn.com/images/1270246/FpH4quO20Q2RoI2k8iLNtchuad3l.jpg?imageMogr2/strip/auto-orient/thumbnail/300x300%3E/format/jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
-    <meta property="og:image:alt" content="Mango搜索预览图">
-    <meta property="og:title" content="Mango搜索 - 极简三合一搜索引擎">
-    <meta property="og:description" content="集成必应搜索、百度搜索和AI问答的极简芒果风格搜索工具">
-    <meta property="og:url" content="https://yourdomain.com/mango-search.html">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card 元标签 -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://user-assets.sxlcdn.com/images/1270246/FpH4quO20Q2RoI2k8iLNtchuad3l.jpg?imageMogr2/strip/auto-orient/thumbnail/300x300%3E/format/jpg">
-    <meta name="twitter:title" content="Mango搜索 - 极简三合一搜索引擎">
-    <meta name="twitter:description" content="集成必应搜索、百度搜索和AI问答的极简芒果风格搜索工具">
-    
-    <!-- 传统link标签（兼容性） -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥭</text></svg>">
-    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥭</text></svg>">
-    
-    <!-- 额外的网页描述 -->
-    <meta name="description" content="集成必应搜索、百度搜索和AI问答的极简芒果风格搜索工具">
-    <meta name="keywords" content="Mango搜索,必应搜索,百度搜索,AI问答,极简搜索工具">
-    <meta name="author" content="Mango搜索">
-
+    <title>Mango搜索 - 多功能搜索引擎</title>
+    <link rel="icon" href="https://img.ddlink.cc/blob-20250927090505.blob?e=1765086690&token=QIOg3HQi4RIYjV3OcvyCG9cX7gGtrxTN1qPNFffw:FMqF4Ua4ZKhL2VGPmWqp2L2JUQE=" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 原有样式保持不变 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #ffefba 0%, #ffa726 100%); /* 芒果黄渐变背景 */
+            background: linear-gradient(135deg, #FFC300 0%, #FF8C00 100%);
             color: #333;
-            line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
-
+        
         .container {
-            width: 100%;
-            max-width: 700px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 头部样式 */
+        header {
             text-align: center;
-            backdrop-filter: blur(10px);
+            padding: 25px 0;
+            color: #333;
         }
-
+        
         .logo {
-            margin-bottom: 30px;
-        }
-
-        .logo h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ff8c00; /* 深芒果黄 */
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .logo p {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .search-container {
-            margin-bottom: 30px;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 18px 20px;
-            font-size: 1.1rem;
-            border: 2px solid #ffd166; /* 芒果黄边框 */
-            border-radius: 12px;
-            outline: none;
-            transition: all 0.2s ease;
-            margin-bottom: 20px;
-            background: #fffef7;
-        }
-
-        #searchInput:focus {
-            border-color: #ffa726;
-            box-shadow: 0 0 0 3px rgba(255, 167, 38, 0.2);
-        }
-
-        .button-container {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .search-btn {
-            flex: 1;
-            min-width: 120px;
-            padding: 15px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: 60px;
+            margin-right: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            color: #333;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* 搜索区域样式 */
+        .search-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .engine-selector-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .engine-select-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .engine-select-label {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background-color: white;
+            padding: 0 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #FF8C00;
+            z-index: 2;
+        }
+        
+        #engine-select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #FFD700;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            background-color: #FFF9E6;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8C00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 20px;
+            transition: all 0.3s;
+        }
+        
+        #engine-select:hover {
+            border-color: #FF8C00;
+            background-color: white;
+        }
+        
+        #engine-select:focus {
+            border-color: #FF8C00;
+            box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.3);
+            background-color: white;
+        }
+        
+        .engine-icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        #search-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid #FFD700;
+            border-radius: 50px 0 0 50px;
+            font-size: 18px;
+            outline: none;
+            transition: border-color 0.3s;
+            background-color: #FFF9E6;
+        }
+        
+        #search-input:focus {
+            border-color: #FF8C00;
+            background-color: white;
+        }
+        
+        #search-btn {
+            padding: 0 35px;
+            background: linear-gradient(90deg, #FFC300, #FF8C00);
+            color: #333;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #FF8C00;
+            border-left: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #search-btn:hover {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            transform: scale(1.02);
+        }
+        
+        /* 搜索历史样式 */
+        .history-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFD700;
+        }
+        
+        .history-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #clear-history {
+            background: #FFC300;
+            color: #333;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        #clear-history:hover {
+            background: #FF8C00;
+            color: white;
+        }
+        
+        .history-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .history-item {
+            background-color: #FFF9E6;
+            border: 1px solid #FFD700;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
             gap: 8px;
         }
-
-        .search-btn i {
-            font-size: 1.1rem;
-        }
-
-        .bing-btn {
-            background-color: #0078d4;
-            color: white;
-        }
-
-        .bing-btn:hover {
-            background-color: #106ebe;
+        
+        .history-item:hover {
+            background-color: #FFD700;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 120, 212, 0.3);
         }
-
-        .baidu-btn {
-            background-color: #2932e1;
+        
+        .history-engine {
+            font-size: 12px;
+            background-color: #FF8C00;
             color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
         }
-
-        .baidu-btn:hover {
-            background-color: #1a22c4;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(41, 50, 225, 0.3);
-        }
-
-        .ai-btn {
-            background-color: #ffa726; /* 芒果黄 */
-            color: white;
-        }
-
-        .ai-btn:hover {
-            background-color: #f57c00;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 167, 38, 0.3);
-        }
-
-        /* 全屏模态框样式 */
+        
+        /* 模态框样式 */
         .modal {
-            display: none; /* 默认隐藏 */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -171,381 +267,678 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
             z-index: 1000;
-            overflow-y: auto;
-            animation: fadeIn 0.3s ease;
+            padding: 20px;
         }
-
+        
         .modal-content {
-            background-color: #fff;
-            margin: 5% auto;
+            background-color: white;
+            border-radius: 15px;
             width: 90%;
-            max-width: 800px;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            height: 85vh;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
-            animation: slideUp 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid #FFC300;
         }
-
+        
         .modal-header {
-            background: linear-gradient(to right, #ffa726, #ff8c00);
-            color: white;
-            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .modal-header h2 {
-            font-size: 1.8rem;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .modal-header h2 i {
-            font-size: 1.5rem;
-        }
-
-        .close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 30px;
-            max-height: 60vh;
-            overflow-y: auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            padding: 20px 25px;
+            background: linear-gradient(90deg, #FFC300, #FF8C00);
             color: #333;
-            background-color: #fcfcfc;
         }
-
-        .modal-footer {
-            padding: 20px 30px;
-            background-color: #f9f9f9;
-            border-top: 1px solid #eee;
-            text-align: right;
+        
+        .modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        .modal-footer button {
-            background-color: #ffa726;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
+        
+        .close-modal {
+            font-size: 28px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            transition: transform 0.3s;
+            color: #333;
         }
-
-        .modal-footer button:hover {
-            background-color: #f57c00;
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: #000;
         }
-
+        
+        .modal-body {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        /* API结果样式 */
+        .api-result {
+            padding: 25px;
+            height: 100%;
+            overflow-y: auto;
+            line-height: 1.6;
+            font-size: 16px;
+            background-color: #FFF9E6;
+        }
+        
+        .api-result h3 {
+            color: #FF8C00;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFD700;
+        }
+        
+        .api-result p {
+            margin-bottom: 15px;
+        }
+        
+        /* 浏览器嵌入样式 */
+        .browser-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 加载动画 */
         .loading {
             display: none;
-            color: #666;
-            margin-top: 15px;
-            font-size: 1.1rem;
-        }
-
-        .loading span {
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .footer {
-            margin-top: 40px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
             text-align: center;
+            padding: 40px;
         }
-
+        
+        .spinner {
+            border: 5px solid rgba(255, 195, 0, 0.2);
+            border-top: 5px solid #FF8C00;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 底部信息 */
+        footer {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 14px;
+            margin-top: 20px;
+            font-weight: 500;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-link {
+            color: #FF8C00;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-link:hover {
+            background-color: #FFC300;
+            color: #333;
+            transform: translateY(-2px);
+        }
+        
+        /* 响应式设计 */
         @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
+            h1 {
+                font-size: 32px;
             }
             
-            .button-container {
+            .logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .search-box {
                 flex-direction: column;
             }
             
-            .search-btn {
-                min-width: 100%;
+            #search-input {
+                border-radius: 50px;
+                margin-bottom: 15px;
+            }
+            
+            #search-btn {
+                border-radius: 50px;
+                padding: 15px;
+                border-left: 2px solid #FF8C00;
+                justify-content: center;
             }
             
             .modal-content {
                 width: 95%;
-                margin: 10% auto;
+                height: 90vh;
+                margin: 10px auto;
             }
             
-            .modal-body {
-                max-height: 70vh;
-                padding: 20px;
+            .history-items {
+                justify-content: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
             }
         }
-
+        
         @media (max-width: 480px) {
-            .logo h1 {
-                font-size: 2rem;
+            .container {
+                padding: 0 10px;
+            }
+            
+            .search-container {
+                padding: 20px;
             }
             
             .modal-header {
-                padding: 15px 20px;
+                padding: 15px;
             }
             
-            .modal-header h2 {
-                font-size: 1.5rem;
+            .history-item {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+            
+            #engine-select {
+                padding: 14px 20px;
+                font-size: 15px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <h1>Mango搜索</h1>
-            <p>极简的现代搜索 | ©2022-2026 Mango</p>
-        </div>
+        <!-- 头部 -->
+        <header>
+            <div class="logo">
+                <img src="https://img.ddlink.cc/blob-20250927090505.blob?e=1765086690&token=QIOg3HQi4RIYjV3OcvyCG9cX7gGtrxTN1qPNFffw:FMqF4Ua4ZKhL2VGPmWqp2L2JUQE=" alt="Mango" onerror="this.onerror=null; this.src='https://via.placeholder.com/60/FFC300/333333?text=M'">
+                <h1>Mango搜索</h1>
+            </div>
+            <p class="subtitle">一站式聚合搜索引擎 | 智能AI与传统搜索的完美结合</p>
+        </header>
         
+        <!-- 搜索区域 -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="请输入搜索内容或问题..." autocomplete="off" autofocus>
+            <!-- 搜索引擎选择器 - 下拉菜单 -->
+            <div class="engine-selector-container">
+                <div class="engine-select-wrapper">
+                    <div class="engine-select-label">选择搜索引擎</div>
+                    <select id="engine-select">
+                        <option value="sogou">
+                            <span class="engine-icon"><i class="fas fa-search"></i></span> 搜狗搜索
+                        </option>
+                        <option value="360">
+                            <span class="engine-icon"><i class="fas fa-shield-alt"></i></span> 360搜索
+                        </option>
+                        <option value="quark">
+                            <span class="engine-icon"><i class="fas fa-robot"></i></span> 夸克搜索
+                        </option>
+                        <option value="qwen">
+                            <span class="engine-icon"><i class="fas fa-brain"></i></span> 千问搜索
+                        </option>
+                        <option value="kimi">
+                            <span class="engine-icon"><i class="fas fa-comment"></i></span> Kimi搜索
+                        </option>
+                        <option value="doubao">
+                            <span class="engine-icon"><i class="fas fa-cube"></i></span> 豆包搜索
+                        </option>
+                        <option value="ai">
+                            <span class="engine-icon"><i class="fas fa-microchip"></i></span> AI搜索
+                        </option>
+                    </select>
+                </div>
+            </div>
             
-            <div class="button-container">
-                <button class="search-btn bing-btn" id="bingBtn">
-                    <i class="fab fa-microsoft"></i> 必应搜索
-                </button>
-                <button class="search-btn baidu-btn" id="baiduBtn">
-                    <i class="fab fa-baidu"></i> 百度搜索
-                </button>
-                <button class="search-btn ai-btn" id="aiBtn">
-                    <i class="fas fa-robot"></i> 问 AI
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="请输入搜索内容...">
+                <button id="search-btn">
+                    <i class="fas fa-search"></i> 搜索
                 </button>
             </div>
             
+            <!-- 加载动画 -->
             <div class="loading" id="loading">
-                <span>AI 正在思考，请稍候...</span>
+                <div class="spinner"></div>
+                <p>正在搜索中，请稍候...</p>
+            </div>
+            
+            <!-- 搜索历史 -->
+            <div class="history-container" id="history-container">
+                <div class="history-header">
+                    <div class="history-title">
+                        <i class="fas fa-history"></i>
+                        <span>搜索历史</span>
+                    </div>
+                    <button id="clear-history">清空历史</button>
+                </div>
+                <div class="history-items" id="history-items">
+                    <!-- 搜索历史将在这里动态生成 -->
+                </div>
             </div>
         </div>
         
-        <div class="footer">
-            <p>必应搜索 | 百度搜索 | AI 问答</p>
-            <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">
-                注：AI 功能基于第三方 API，回答内容仅供参考
-            </p>
-        </div>
-    </div>
-
-    <!-- 全屏模态框 -->
-    <div class="modal" id="aiModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-robot"></i> AI 回答</h2>
-                <button class="close-btn" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- AI回答内容将在这里显示 -->
-            </div>
-            <div class="modal-footer">
-                <button id="copyBtn"><i class="far fa-copy"></i> 复制回答</button>
+        <!-- 搜索结果模态框 -->
+        <div class="modal" id="search-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="modal-title">
+                        <i class="fas fa-search"></i>
+                        <span id="engine-name">搜狗搜索</span> - 搜索结果
+                    </div>
+                    <div class="close-modal" id="close-modal">&times;</div>
+                </div>
+                <div class="modal-body">
+                    <!-- API搜索结果 -->
+                    <div class="api-result" id="api-result"></div>
+                    
+                    <!-- 传统搜索引擎嵌入 -->
+                    <iframe class="browser-embed" id="browser-embed"></iframe>
+                </div>
             </div>
         </div>
+        
+        <!-- 底部信息 -->
+        <footer>
+            <p>Mango搜索 &copy; 2022-2026 | 聚合多种搜索引擎，提供最佳搜索体验</p>
+            <p>注意：API搜索功能依赖外部接口，部分AI搜索可能需要更长的响应时间</p>
+            <div class="footer-links">
+                <a href="https://api.jkyai.top/" target="_blank" class="footer-link">
+                    <i class="fas fa-code"></i> 云智API
+                </a>
+                <a href="http://mango.ikun.ren" target="_blank" class="footer-link">
+                    <i class="fas fa-tools"></i> Mango工具站
+                </a>
+            </div>
+        </footer>
     </div>
 
     <script>
-        // 获取DOM元素
-        const searchInput = document.getElementById('searchInput');
-        const bingBtn = document.getElementById('bingBtn');
-        const baiduBtn = document.getElementById('baiduBtn');
-        const aiBtn = document.getElementById('aiBtn');
-        const loading = document.getElementById('loading');
-        
-        // 模态框相关元素
-        const aiModal = document.getElementById('aiModal');
-        const modalBody = document.getElementById('modalBody');
-        const closeModal = document.getElementById('closeModal');
-        const copyBtn = document.getElementById('copyBtn');
+        // 搜索引擎配置
+        const engines = {
+            sogou: {
+                name: "搜狗搜索",
+                type: "traditional",
+                url: "https://www.sogou.com/web?query=",
+                icon: "fas fa-search"
+            },
+            "360": {
+                name: "360搜索",
+                type: "traditional",
+                url: "https://www.so.com/s?ie=utf-8&src=360sou_newhome&q=",
+                icon: "fas fa-shield-alt"
+            },
+            quark: {
+                name: "夸克搜索",
+                type: "api",
+                url: "https://api.jkyai.top/API/kkaimx.php?content=",
+                icon: "fas fa-robot"
+            },
+            qwen: {
+                name: "千问搜索",
+                type: "api",
+                url: "https://api.jkyai.top/API/qwen3.php?question=",
+                icon: "fas fa-brain"
+            },
+            kimi: {
+                name: "Kimi搜索",
+                type: "api",
+                url: "https://api.jkyai.top/API/kimik2.php?question=",
+                icon: "fas fa-comment"
+            },
+            doubao: {
+                name: "豆包搜索",
+                type: "api",
+                url: "https://api.jkyai.top/API/doubao.php?question=",
+                icon: "fas fa-cube"
+            },
+            ai: {
+                name: "AI搜索",
+                type: "api",
+                url: "https://api.jkyai.top/API/ling-1t.php?question=",
+                icon: "fas fa-microchip"
+            }
+        };
 
-        // 执行搜索的通用函数
-        function performSearch(searchType) {
+        // 当前选择的搜索引擎
+        let currentEngine = "sogou";
+        
+        // 搜索历史相关
+        const MAX_HISTORY_ITEMS = 10;
+        let searchHistory = [];
+        
+        // DOM元素
+        const engineSelect = document.getElementById("engine-select");
+        const searchInput = document.getElementById("search-input");
+        const searchBtn = document.getElementById("search-btn");
+        const modal = document.getElementById("search-modal");
+        const closeModal = document.getElementById("close-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const engineName = document.getElementById("engine-name");
+        const apiResult = document.getElementById("api-result");
+        const browserEmbed = document.getElementById("browser-embed");
+        const loading = document.getElementById("loading");
+        const historyContainer = document.getElementById("history-container");
+        const historyItems = document.getElementById("history-items");
+        const clearHistoryBtn = document.getElementById("clear-history");
+        
+        // 初始化
+        document.addEventListener("DOMContentLoaded", function() {
+            // 初始化下拉菜单选项（设置图标）
+            initializeSelectOptions();
+            
+            // 加载搜索历史
+            loadSearchHistory();
+            
+            // 设置默认搜索引擎
+            engineSelect.value = currentEngine;
+            
+            // 搜索按钮点击事件
+            searchBtn.addEventListener("click", performSearch);
+            
+            // 回车键搜索
+            searchInput.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    performSearch();
+                }
+            });
+            
+            // 关闭模态框
+            closeModal.addEventListener("click", function() {
+                closeModalWindow();
+            });
+            
+            // 点击模态框外部关闭
+            modal.addEventListener("click", function(e) {
+                if (e.target === modal) {
+                    closeModalWindow();
+                }
+            });
+            
+            // 搜索引擎下拉菜单变化事件
+            engineSelect.addEventListener("change", function() {
+                currentEngine = this.value;
+            });
+            
+            // 清空历史记录
+            clearHistoryBtn.addEventListener("click", clearSearchHistory);
+            
+            // 输入框获取焦点时显示搜索历史
+            searchInput.addEventListener("focus", function() {
+                if (searchHistory.length > 0) {
+                    historyContainer.style.display = "block";
+                }
+            });
+            
+            // 点击页面其他位置时隐藏搜索历史
+            document.addEventListener("click", function(e) {
+                if (!historyContainer.contains(e.target) && e.target !== searchInput) {
+                    historyContainer.style.display = "none";
+                }
+            });
+        });
+        
+        // 初始化下拉菜单选项
+        function initializeSelectOptions() {
+            const options = engineSelect.querySelectorAll("option");
+            options.forEach(option => {
+                const engine = engines[option.value];
+                if (engine) {
+                    option.textContent = `${engine.icon ? getIconHTML(engine.icon) : ''} ${engine.name}`;
+                }
+            });
+        }
+        
+        // 获取图标HTML
+        function getIconHTML(iconClass) {
+            const iconMap = {
+                "fas fa-search": "🔍",
+                "fas fa-shield-alt": "🛡️",
+                "fas fa-robot": "🤖",
+                "fas fa-brain": "🧠",
+                "fas fa-comment": "💬",
+                "fas fa-cube": "🧊",
+                "fas fa-microchip": "💻"
+            };
+            
+            return iconMap[iconClass] || "🔍";
+        }
+        
+        // 执行搜索
+        function performSearch() {
             const query = searchInput.value.trim();
             
             if (!query) {
-                alert('请输入搜索内容！');
+                alert("请输入搜索内容");
                 searchInput.focus();
                 return;
             }
             
-            // 对搜索词进行URL编码
-            const encodedQuery = encodeURIComponent(query);
+            const engine = engines[currentEngine];
             
-            // 根据搜索类型跳转到不同搜索引擎
-            if (searchType === 'bing') {
-                // 必应搜索
-                window.open(`https://cn.bing.com/search?q=${encodedQuery}&PC=U316&FORM=CHROMN`, '_blank');
-            } else if (searchType === 'baidu') {
-                // 百度搜索 - 使用您要求的格式 wd=1搜索内容
-                window.open(`https://www.baidu.com/s?wd=1${encodedQuery}`, '_blank');
-            } else if (searchType === 'ai') {
-                // 问AI功能
-                askAI(query);
-            }
-        }
-
-        // 调用AI API的函数
-        async function askAI(question) {
-            // 显示加载中
-            loading.style.display = 'block';
+            // 添加搜索历史
+            addToSearchHistory(query, currentEngine);
             
-            try {
-                // 构建API请求URL
-                const apiUrl = `https://api.jkyai.top/API/ling-1t.php?question=${encodeURIComponent(question)}`;
-                
-                // 发送请求到AI API
-                const response = await fetch(apiUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`API请求失败: ${response.status}`);
-                }
-                
-                // 获取纯文本响应
-                const aiText = await response.text();
-                
-                // 显示模态框并设置内容
-                showModal(aiText || 'AI未返回有效内容，请稍后重试。');
-                
-            } catch (error) {
-                // 显示错误信息
-                showModal(`请求AI时出错: ${error.message}\n\n请检查网络连接或稍后重试。`);
-                console.error('AI请求错误:', error);
-            } finally {
-                // 隐藏加载中
-                loading.style.display = 'none';
-            }
-        }
-
-        // 显示模态框
-        function showModal(content) {
-            // 设置模态框内容
-            modalBody.innerHTML = `<div style="white-space: pre-wrap; line-height: 1.8;">${escapeHtml(content)}</div>`;
+            // 显示加载动画
+            loading.style.display = "block";
             
-            // 显示模态框
-            aiModal.style.display = 'block';
+            // 设置模态框标题
+            engineName.textContent = engine.name;
+            modalTitle.innerHTML = `<i class="${engine.icon}"></i> ${engine.name} - 搜索结果`;
             
-            // 防止背景滚动
-            document.body.style.overflow = 'hidden';
-        }
-
-        // 关闭模态框
-        function closeModalFunc() {
-            aiModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢复滚动
-        }
-
-        // HTML转义，防止XSS攻击
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // 复制回答到剪贴板
-        function copyToClipboard() {
-            const textToCopy = modalBody.textContent;
+            // 隐藏搜索历史
+            historyContainer.style.display = "none";
             
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                // 显示复制成功反馈
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i class="fas fa-check"></i> 已复制';
-                copyBtn.style.backgroundColor = '#4CAF50';
+            // 根据搜索引擎类型执行不同的搜索
+            if (engine.type === "traditional") {
+                // 传统搜索引擎：使用iframe嵌入
+                const searchUrl = engine.url + encodeURIComponent(query);
                 
+                // 隐藏API结果，显示iframe
+                apiResult.style.display = "none";
+                browserEmbed.style.display = "block";
+                
+                // 设置iframe源
+                browserEmbed.src = searchUrl;
+                
+                // 显示模态框
                 setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                    copyBtn.style.backgroundColor = '#ffa726';
-                }, 2000);
-            }).catch(err => {
-                console.error('复制失败:', err);
-                alert('复制失败，请手动选择文本复制。');
+                    loading.style.display = "none";
+                    modal.style.display = "block";
+                }, 500);
+                
+            } else {
+                // API搜索引擎：使用fetch获取数据
+                const apiUrl = engine.url + encodeURIComponent(query);
+                
+                // 隐藏iframe，显示API结果
+                browserEmbed.style.display = "none";
+                apiResult.style.display = "block";
+                
+                // 显示加载状态
+                apiResult.innerHTML = `<h3>${engine.name} 正在思考中...</h3><p>正在为您搜索: "${query}"</p>`;
+                
+                // 显示模态框
+                modal.style.display = "block";
+                loading.style.display = "none";
+                
+                // 发起API请求
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`API请求失败: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        // 处理API返回的文本数据
+                        displayApiResult(data, query, engine.name);
+                    })
+                    .catch(error => {
+                        console.error("搜索出错:", error);
+                        apiResult.innerHTML = `
+                            <h3>${engine.name} 搜索出错</h3>
+                            <p>抱歉，搜索过程中出现错误：${error.message}</p>
+                            <p>请检查网络连接或稍后再试。</p>
+                            <p>您也可以尝试切换到其他搜索引擎。</p>
+                        `;
+                    })
+                    .finally(() => {
+                        loading.style.display = "none";
+                    });
+            }
+        }
+        
+        // 关闭模态窗口
+        function closeModalWindow() {
+            modal.style.display = "none";
+            // 清空iframe，避免继续加载
+            browserEmbed.src = "about:blank";
+        }
+        
+        // 显示API搜索结果
+        function displayApiResult(data, query, engineName) {
+            let resultHTML = `<h3>${engineName} 为您找到以下结果：</h3>`;
+            
+            // 检查返回的数据是否为有效的文本
+            if (!data || data.trim() === "") {
+                resultHTML += `<p>抱歉，${engineName} 没有找到关于 "${query}" 的相关信息。</p>`;
+                resultHTML += `<p>请尝试更换搜索关键词或使用其他搜索引擎。</p>`;
+            } else {
+                // 格式化文本结果
+                const formattedData = data
+                    .replace(/\n/g, '</p><p>')
+                    .replace(/### (.*?)(?:\n|$)/g, '<h4>$1</h4>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+                resultHTML += `<p>${formattedData}</p>`;
+                
+                // 添加原始搜索信息
+                resultHTML += `<hr><p><small>搜索关键词: "${query}" | 搜索引擎: ${engineName}</small></p>`;
+            }
+            
+            apiResult.innerHTML = resultHTML;
+        }
+        
+        // 搜索历史功能
+        function loadSearchHistory() {
+            try {
+                const savedHistory = localStorage.getItem('mangoSearchHistory');
+                if (savedHistory) {
+                    searchHistory = JSON.parse(savedHistory);
+                    updateHistoryDisplay();
+                }
+            } catch (e) {
+                console.error("加载搜索历史失败:", e);
+                searchHistory = [];
+            }
+        }
+        
+        function saveSearchHistory() {
+            try {
+                localStorage.setItem('mangoSearchHistory', JSON.stringify(searchHistory));
+            } catch (e) {
+                console.error("保存搜索历史失败:", e);
+            }
+        }
+        
+        function addToSearchHistory(query, engine) {
+            // 移除可能存在的相同搜索记录
+            searchHistory = searchHistory.filter(item => !(item.query === query && item.engine === engine));
+            
+            // 添加到历史记录开头
+            searchHistory.unshift({
+                query: query,
+                engine: engine,
+                timestamp: new Date().getTime()
+            });
+            
+            // 限制历史记录数量
+            if (searchHistory.length > MAX_HISTORY_ITEMS) {
+                searchHistory = searchHistory.slice(0, MAX_HISTORY_ITEMS);
+            }
+            
+            // 保存到本地存储并更新显示
+            saveSearchHistory();
+            updateHistoryDisplay();
+        }
+        
+        function updateHistoryDisplay() {
+            // 清空现有历史记录显示
+            historyItems.innerHTML = '';
+            
+            if (searchHistory.length === 0) {
+                historyContainer.style.display = "none";
+                return;
+            }
+            
+            // 显示历史记录容器
+            historyContainer.style.display = "block";
+            
+            // 添加历史记录项
+            searchHistory.forEach(item => {
+                const engine = engines[item.engine];
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <span class="history-query">${item.query}</span>
+                    <span class="history-engine">${engine.name}</span>
+                `;
+                
+                // 点击历史记录项进行搜索
+                historyItem.addEventListener('click', function() {
+                    // 设置对应的搜索引擎
+                    currentEngine = item.engine;
+                    engineSelect.value = item.engine;
+                    
+                    // 设置搜索框内容
+                    searchInput.value = item.query;
+                    
+                    // 执行搜索
+                    performSearch();
+                });
+                
+                historyItems.appendChild(historyItem);
             });
         }
-
-        // 为按钮添加点击事件
-        bingBtn.addEventListener('click', () => performSearch('bing'));
-        baiduBtn.addEventListener('click', () => performSearch('baidu'));
-        aiBtn.addEventListener('click', () => performSearch('ai'));
-
-        // 为输入框添加键盘事件
-        searchInput.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                performSearch('bing');
-            }
-        });
-
-        // 模态框关闭事件
-        closeModal.addEventListener('click', closeModalFunc);
         
-        // 点击模态框外部关闭
-        aiModal.addEventListener('click', function(event) {
-            if (event.target === aiModal) {
-                closeModalFunc();
+        function clearSearchHistory() {
+            if (confirm("确定要清空所有搜索历史吗？")) {
+                searchHistory = [];
+                saveSearchHistory();
+                updateHistoryDisplay();
             }
-        });
-        
-        // 复制按钮事件
-        copyBtn.addEventListener('click', copyToClipboard);
-        
-        // ESC键关闭模态框
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && aiModal.style.display === 'block') {
-                closeModalFunc();
-            }
-        });
-
-        // 页面加载后，自动让输入框获得焦点
-        window.addEventListener('DOMContentLoaded', () => {
-            searchInput.focus();
-        });
+        }
     </script>
 </body>
 </html>
